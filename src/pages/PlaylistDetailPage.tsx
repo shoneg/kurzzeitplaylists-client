@@ -5,6 +5,9 @@ import { buildServerUrl } from '../config';
 import { useI18n } from '../i18n';
 import { PlaylistEditOptions, Session } from '../types';
 
+/**
+ * Playlist detail page for editing cleanup rules.
+ */
 const PlaylistDetailPage: React.FC<{ session: Session | null }> = ({ session }) => {
   const { t } = useI18n();
   const { id } = useParams();

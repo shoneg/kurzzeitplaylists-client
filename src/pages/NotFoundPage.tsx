@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 
+/**
+ * Fallback route for unknown client paths.
+ */
 const NotFoundPage: React.FC = () => {
   const { t } = useI18n();
 

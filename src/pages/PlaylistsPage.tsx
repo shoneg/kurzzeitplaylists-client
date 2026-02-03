@@ -5,6 +5,9 @@ import { buildServerUrl } from '../config';
 import { useI18n } from '../i18n';
 import { PlaylistSummary, RecognizeResult, Session } from '../types';
 
+/**
+ * Playlist list page with sync and rule summaries.
+ */
 const PlaylistsPage: React.FC<{ session: Session | null }> = ({ session }) => {
   const { t } = useI18n();
   const [playlists, setPlaylists] = useState<PlaylistSummary[]>([]);

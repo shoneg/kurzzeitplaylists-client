@@ -1,10 +1,14 @@
 import { buildApiUrl } from './config';
 
+/** Default JSON headers used for API calls. */
 const jsonHeaders = {
   'Content-Type': 'application/json',
   Accept: 'application/json',
 };
 
+/**
+ * Best-effort extraction of a human-readable error message.
+ */
 const parseErrorMessage = async (response: Response): Promise<string> => {
   try {
     const data = await response.json();
@@ -25,6 +29,9 @@ const parseErrorMessage = async (response: Response): Promise<string> => {
   return `Request failed with status ${response.status}`;
 };
 
+/**
+ * Perform a GET request against the API with credentials included.
+ */
 export async function apiGet<T>(path: string): Promise<T> {
   const response = await fetch(buildApiUrl(path), {
     method: 'GET',
@@ -39,6 +46,9 @@ export async function apiGet<T>(path: string): Promise<T> {
   return response.json() as Promise<T>;
 }
 
+/**
+ * Perform a POST request against the API with credentials included.
+ */
 export async function apiPost<T>(path: string, body?: unknown): Promise<T> {
   const response = await fetch(buildApiUrl(path), {
     method: 'POST',

@@ -4,6 +4,9 @@ import { buildServerUrl } from '../config';
 import { useI18n } from '../i18n';
 import { Session } from '../types';
 
+/**
+ * Account deletion flow with confirmation phrase.
+ */
 const DeleteAccountPage: React.FC<{ session: Session | null }> = ({ session }) => {
   const { t } = useI18n();
   const [confirmation, setConfirmation] = useState('');

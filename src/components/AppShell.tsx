@@ -10,6 +10,9 @@ import NotFoundPage from '../pages/NotFoundPage';
 import PlaylistDetailPage from '../pages/PlaylistDetailPage';
 import PlaylistsPage from '../pages/PlaylistsPage';
 
+/**
+ * Top-level layout and routing shell for the client app.
+ */
 const AppShell: React.FC = () => {
   const { t } = useI18n();
   const [session, setSession] = useState<Session | null>(null);

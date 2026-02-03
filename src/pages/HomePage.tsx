@@ -4,6 +4,9 @@ import { buildServerUrl } from '../config';
 import { useI18n } from '../i18n';
 import { Session } from '../types';
 
+/**
+ * Landing page with a login CTA and session status.
+ */
 const HomePage: React.FC<{ session: Session | null }> = ({ session }) => {
   const { t } = useI18n();
   const authenticated = session?.authenticated;

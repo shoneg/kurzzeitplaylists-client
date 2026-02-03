@@ -1,3 +1,4 @@
+/** Session payload returned by `/api/session`. */
 export type Session = {
   authenticated: boolean;
   user?: {
@@ -6,6 +7,7 @@ export type Session = {
   };
 };
 
+/** Summary payload for playlist list views. */
 export type PlaylistSummary = {
   spotifyId: string;
   name: string;
@@ -15,6 +17,7 @@ export type PlaylistSummary = {
   discardPlaylist: string | null;
 };
 
+/** Detailed playlist payload including oldest track info. */
 export type PlaylistDetail = PlaylistSummary & {
   oldestTrack: {
     date: string;
@@ -22,6 +25,7 @@ export type PlaylistDetail = PlaylistSummary & {
   };
 };
 
+/** Payload used by the playlist edit view. */
 export type PlaylistEditOptions = {
   playlist: PlaylistDetail;
   discardOptions: Array<{
@@ -30,6 +34,7 @@ export type PlaylistEditOptions = {
   }>;
 };
 
+/** Result of a playlist recognition sync. */
 export type RecognizeResult = {
   newPlaylists: number;
   deletedPlaylists: number;
