@@ -1,19 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import AppShell from './components/AppShell';
+import { ROUTER_BASENAME } from './config';
 
-const App: () => JSX.Element = () => {
-
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
-        <p onClick={() => { fetch('/test').then(data => console.log(data)).catch(e => console.error(e)) }}  >Login with Spotify</p>
-      </header>
-    </div>
+    <BrowserRouter basename={ROUTER_BASENAME || undefined}>
+      <AppShell />
+    </BrowserRouter>
   );
-
-}
+};
 
 export default App;

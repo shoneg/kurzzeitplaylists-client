@@ -1,38 +1,345 @@
-.App {
+:root {
+  --spotify-green: #1db954;
+  --spotify-green-dark: #169c45;
+  --spotify-black: #0b0b0b;
+  --spotify-dark: #121212;
+  --spotify-elevated: #181818;
+  --spotify-elevated-2: #202020;
+  --spotify-white: #f4f4f4;
+  --spotify-muted: #a7a7a7;
+  --spotify-warning: #ff7a59;
+  --spotify-danger: #ff5c70;
+  --spotify-shadow: rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  color: var(--spotify-white);
+  background: radial-gradient(circle at top right, rgba(29, 185, 84, 0.2), transparent 40%),
+    radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.05), transparent 35%),
+    linear-gradient(150deg, #070707, #101010 45%, #0a0f0c 100%);
+  padding: 32px clamp(16px, 4vw, 64px) 64px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--spotify-green), #74f1a6);
+  box-shadow: 0 12px 32px rgba(29, 185, 84, 0.35);
+}
+
+.brand-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand-subtitle {
+  color: var(--spotify-muted);
+  font-size: 0.95rem;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+
+.nav a {
+  color: var(--spotify-white);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav a:hover {
+  background: rgba(29, 185, 84, 0.2);
+  color: var(--spotify-white);
+}
+
+.app-main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  margin-bottom: 16px;
+}
+
+.hero-content p {
+  color: var(--spotify-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.hero-panel {
+  display: grid;
+  gap: 20px;
+}
+
+.hero-card {
+  background: var(--spotify-elevated);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 24px 40px var(--spotify-shadow);
+}
+
+.hero-card.subtle {
+  background: var(--spotify-elevated-2);
+}
+
+.hero-card-title {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--spotify-muted);
+  display: grid;
+  gap: 10px;
+}
+
+.session-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.panel {
+  background: var(--spotify-elevated);
+  border-radius: 28px;
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: 0 24px 40px var(--spotify-shadow);
+}
+
+.panel.danger {
+  border: 1px solid rgba(255, 92, 112, 0.4);
+  background: linear-gradient(135deg, rgba(255, 92, 112, 0.1), rgba(18, 18, 18, 0.9));
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.playlist-card {
+  background: var(--spotify-elevated-2);
+  padding: 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--spotify-white);
+  display: grid;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.playlist-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.35);
+}
+
+.playlist-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.playlist-meta {
+  color: var(--spotify-muted);
+}
+
+.playlist-rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: rgba(29, 185, 84, 0.2);
+  color: var(--spotify-white);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.tag.ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--spotify-muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--spotify-green);
+  color: #05150a;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--spotify-green-dark);
+  transform: translateY(-1px);
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--spotify-white);
+}
+
+.btn.danger {
+  background: var(--spotify-danger);
+  color: #150606;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: var(--spotify-green);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.field input,
+.field select {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: var(--spotify-white);
+  padding: 12px 14px;
+  font-size: 1rem;
+}
+
+.field input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.form-actions {
+  margin-top: 8px;
+}
+
+.notice {
+  background: rgba(29, 185, 84, 0.15);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.notice.success {
+  background: rgba(29, 185, 84, 0.2);
+}
+
+.error {
+  color: var(--spotify-danger);
+  margin-top: 8px;
+}
+
+.empty {
+  color: var(--spotify-muted);
+  margin-top: 16px;
+}
+
+.muted {
+  color: var(--spotify-muted);
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 12px 16px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.stat-label {
+  color: var(--spotify-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  .nav {
+    width: 100%;
   }
 }
