@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -eu
+
+CONFIG_PATH="/usr/share/nginx/html/config.js"
+
+cat <<EOF > "$CONFIG_PATH"
+window.__RUNTIME_CONFIG__ = {
+  REACT_APP_SERVER_ORIGIN: "${REACT_APP_SERVER_ORIGIN:-}",
+  REACT_APP_API_BASE_URL: "${REACT_APP_API_BASE_URL:-}",
+  REACT_APP_ROUTER_BASENAME: "${REACT_APP_ROUTER_BASENAME:-}"
+};
+EOF
