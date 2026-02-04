@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:20-alpine
 ENV PORT=3000
 WORKDIR /usr/src/app
 COPY ["package.json", "yarn.lock", "./"]
