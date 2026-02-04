@@ -6,6 +6,7 @@ declare global {
       REACT_APP_SERVER_ORIGIN?: string;
       REACT_APP_API_BASE_URL?: string;
       REACT_APP_ROUTER_BASENAME?: string;
+      REACT_APP_SERVER_BASE_PATH?: string;
     };
   }
 }
