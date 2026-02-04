@@ -1,11 +1,13 @@
-FROM node:20-alpine
-ENV PORT=3000
+FROM node:20-alpine AS builder
 WORKDIR /usr/src/app
 COPY ["package.json", "yarn.lock", "./"]
 RUN corepack enable \
   && yarn install --silent --non-interactive
 COPY . .
-EXPOSE 3000
-RUN chown -R node /usr/src/app
-USER node
-CMD ["npm", "start"]
+RUN yarn build
+
+FROM nginx:1.27-alpine
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
