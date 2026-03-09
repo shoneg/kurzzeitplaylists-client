@@ -67,3 +67,24 @@ export async function apiPost<T>(path: string, body?: unknown): Promise<T> {
 
   return response.json() as Promise<T>;
 }
+
+/**
+ * Perform a DELETE request against the API with credentials included.
+ */
+export async function apiDelete<T>(path: string): Promise<T> {
+  const response = await fetch(buildApiUrl(path), {
+    method: 'DELETE',
+    credentials: 'include',
+    headers: jsonHeaders,
+  });
+
+  if (!response.ok) {
+    throw new Error(await parseErrorMessage(response));
+  }
+
+  if (response.status === 204) {
+    return {} as T;
+  }
+
+  return response.json() as Promise<T>;
+}

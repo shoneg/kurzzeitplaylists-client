@@ -39,3 +39,37 @@ export type RecognizeResult = {
   newPlaylists: number;
   deletedPlaylists: number;
 };
+
+export type AggregationMode = 'exact_union' | 'add_missing';
+
+export type AggregationRule = {
+  mode: AggregationMode;
+  sourcePlaylistIds: string[];
+  targetSpotifyId: string;
+};
+
+export type AggregationPlaylistOption = {
+  name: string;
+  spotifyId: string;
+};
+
+export type AggregationOverview = {
+  playlists: AggregationPlaylistOption[];
+  targetPlaylists: AggregationPlaylistOption[];
+  rules: AggregationRule[];
+};
+
+export type AggregationExecutionResult = {
+  added: number;
+  desiredUnique: number;
+  mode: AggregationMode;
+  removed: number;
+  skippedNoUri: number;
+  sourcePlaylistIds: string[];
+  targetSpotifyId: string;
+};
+
+export type AggregationUpsertResponse = {
+  execution: AggregationExecutionResult;
+  rule: AggregationRule;
+};

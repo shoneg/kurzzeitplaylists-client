@@ -7,6 +7,7 @@ import { Session } from '../types';
 import DeleteAccountPage from '../pages/DeleteAccountPage';
 import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
+import AggregationsPage from '../pages/AggregationsPage';
 import PlaylistDetailPage from '../pages/PlaylistDetailPage';
 import PlaylistsPage from '../pages/PlaylistsPage';
 
@@ -48,6 +49,7 @@ const AppShell: React.FC = () => {
         <nav className="nav">
           <Link to="/">{t('nav.home')}</Link>
           <Link to="/playlists">{t('nav.playlists')}</Link>
+          <Link to="/aggregations">{t('nav.aggregations')}</Link>
           <Link to="/account/delete">{t('nav.delete')}</Link>
           <a href={buildServerUrl('/auth/logout')}>{t('nav.logout')}</a>
         </nav>
@@ -58,6 +60,7 @@ const AppShell: React.FC = () => {
           <Route path="/" element={<HomePage session={session} />} />
           <Route path="/playlists" element={<PlaylistsPage session={session} />} />
           <Route path="/playlists/:id" element={<PlaylistDetailPage session={session} />} />
+          <Route path="/aggregations" element={<AggregationsPage session={session} />} />
           <Route path="/account/delete" element={<DeleteAccountPage session={session} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

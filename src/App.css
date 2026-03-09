@@ -333,6 +333,120 @@
   font-weight: 700;
 }
 
+.aggregation-layout {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+  margin-top: 8px;
+}
+
+.aggregation-rules {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.aggregation-rules-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aggregation-rules-header h3 {
+  margin: 0;
+}
+
+.aggregation-rule-list {
+  display: grid;
+  gap: 8px;
+}
+
+.aggregation-rule-item {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--spotify-white);
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  gap: 4px;
+}
+
+.aggregation-rule-item.active {
+  border-color: rgba(29, 185, 84, 0.8);
+  background: rgba(29, 185, 84, 0.16);
+}
+
+.aggregation-rule-name {
+  font-weight: 700;
+}
+
+.aggregation-rule-meta {
+  color: var(--spotify-muted);
+  font-size: 0.85rem;
+}
+
+.aggregation-editor {
+  margin-top: 0;
+}
+
+.inline-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.inline-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inline-select {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.aggregation-source-list {
+  display: grid;
+  gap: 8px;
+}
+
+.aggregation-source-item {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 12px;
+}
+
+.aggregation-source-name {
+  font-weight: 600;
+}
+
+.aggregation-source-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.aggregation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 @media (max-width: 800px) {
   .app-header {
     flex-direction: column;
@@ -341,5 +455,13 @@
 
   .nav {
     width: 100%;
+  }
+
+  .aggregation-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .inline-select {
+    grid-template-columns: 1fr;
   }
 }
