@@ -73,3 +73,8 @@ export type AggregationUpsertResponse = {
   execution: AggregationExecutionResult;
   rule: AggregationRule;
 };
+
+export type ReauthorizationError = {
+  message: string;
+  reauthorizeUrl: string;
+};

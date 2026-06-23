@@ -16,6 +16,7 @@ const messages: Record<Language, Messages> = {
     'nav.aggregations': 'Aggregations',
     'nav.delete': 'Delete Account',
     'nav.logout': 'Log out',
+    'nav.refreshToken': 'Refresh token',
     'brand.subtitle': 'Spotify playlist cleanup, on your terms',
     'home.title': 'Short-lived playlists, long-lived control.',
     'home.description':
@@ -118,6 +119,7 @@ const messages: Record<Language, Messages> = {
     'nav.aggregations': 'Aggregationen',
     'nav.delete': 'Account loeschen',
     'nav.logout': 'Abmelden',
+    'nav.refreshToken': 'Token erneuern',
     'brand.subtitle': 'Spotify-Playlists aufraeumen, nach deinen Regeln',
     'home.title': 'Kurzlebige Playlists, dauerhafte Kontrolle.',
     'home.description':
@@ -178,6 +180,7 @@ const messages: Record<Language, Messages> = {
     'nav.aggregations': 'Aggregations',
     'nav.delete': 'Supprimer le compte',
     'nav.logout': 'Se deconnecter',
+    'nav.refreshToken': 'Renouveler le jeton',
     'brand.subtitle': 'Nettoyage des playlists Spotify, selon vos regles',
     'home.title': 'Playlists courtes, controle durable.',
     'home.description':
@@ -238,6 +241,7 @@ const messages: Record<Language, Messages> = {
     'nav.aggregations': 'Agregaciones',
     'nav.delete': 'Eliminar cuenta',
     'nav.logout': 'Cerrar sesion',
+    'nav.refreshToken': 'Renovar token',
     'brand.subtitle': 'Limpieza de playlists de Spotify, a tu manera',
     'home.title': 'Playlists temporales, control duradero.',
     'home.description':

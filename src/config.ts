@@ -9,6 +9,7 @@ const runtimeConfig: RuntimeConfig =
   typeof window !== 'undefined' && (window as any).__RUNTIME_CONFIG__
     ? (window as any).__RUNTIME_CONFIG__
     : {};
+const buildEnv = import.meta.env as Partial<Record<keyof RuntimeConfig, string>>;
 
 const normalizeBasePath = (value: string | undefined): string => {
   if (!value) {
@@ -19,16 +20,16 @@ const normalizeBasePath = (value: string | undefined): string => {
 };
 
 /** Server origin used for auth redirects and links. */
-const SERVER_ORIGIN = runtimeConfig.REACT_APP_SERVER_ORIGIN || process.env.REACT_APP_SERVER_ORIGIN || '';
+const SERVER_ORIGIN = runtimeConfig.REACT_APP_SERVER_ORIGIN || buildEnv.REACT_APP_SERVER_ORIGIN || '';
 /** API base URL for JSON requests. */
-const API_BASE_URL = runtimeConfig.REACT_APP_API_BASE_URL || process.env.REACT_APP_API_BASE_URL || SERVER_ORIGIN;
+const API_BASE_URL = runtimeConfig.REACT_APP_API_BASE_URL || buildEnv.REACT_APP_API_BASE_URL || SERVER_ORIGIN;
 /** Optional base path for server routes (e.g., /kzp-api). */
 const SERVER_BASE_PATH = normalizeBasePath(
-  runtimeConfig.REACT_APP_SERVER_BASE_PATH || process.env.REACT_APP_SERVER_BASE_PATH
+  runtimeConfig.REACT_APP_SERVER_BASE_PATH || buildEnv.REACT_APP_SERVER_BASE_PATH
 );
 /** Router basename for deployments under sub-paths. */
 export const ROUTER_BASENAME =
-  runtimeConfig.REACT_APP_ROUTER_BASENAME || process.env.REACT_APP_ROUTER_BASENAME || '';
+  runtimeConfig.REACT_APP_ROUTER_BASENAME || buildEnv.REACT_APP_ROUTER_BASENAME || '';
 
 /**
  * Build a full server URL for auth and legacy endpoints.

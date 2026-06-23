@@ -50,8 +50,13 @@ const AppShell: React.FC = () => {
           <Link to="/">{t('nav.home')}</Link>
           <Link to="/playlists">{t('nav.playlists')}</Link>
           <Link to="/aggregations">{t('nav.aggregations')}</Link>
-          <Link to="/account/delete">{t('nav.delete')}</Link>
-          <a href={buildServerUrl('/auth/logout')}>{t('nav.logout')}</a>
+          {session?.authenticated ? (
+            <>
+              <a href={buildServerUrl('/auth/refresh-token')}>{t('nav.refreshToken')}</a>
+              <Link to="/account/delete">{t('nav.delete')}</Link>
+              <a href={buildServerUrl('/auth/logout')}>{t('nav.logout')}</a>
+            </>
+          ) : null}
         </nav>
       </header>
 

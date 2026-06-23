@@ -1,4 +1,5 @@
-import { buildApiUrl } from './config';
+import { buildApiUrl, buildServerUrl } from './config';
+import { ReauthorizationError } from './types';
 
 /** Default JSON headers used for API calls. */
 const jsonHeaders = {
@@ -9,9 +10,23 @@ const jsonHeaders = {
 /**
  * Best-effort extraction of a human-readable error message.
  */
+const redirectToReauthorization = (data: unknown): boolean => {
+  const maybeAuthError = data as Partial<ReauthorizationError> | undefined;
+  if (responseIsBrowser() && typeof maybeAuthError?.reauthorizeUrl === 'string') {
+    window.location.assign(buildServerUrl(maybeAuthError.reauthorizeUrl));
+    return true;
+  }
+  return false;
+};
+
+const responseIsBrowser = (): boolean => typeof window !== 'undefined' && Boolean(window.location);
+
 const parseErrorMessage = async (response: Response): Promise<string> => {
   try {
     const data = await response.json();
+    if (response.status === 401 && redirectToReauthorization(data)) {
+      return 'Spotify authorization expired';
+    }
     if (data && typeof data.message === 'string') {
       return data.message;
     }

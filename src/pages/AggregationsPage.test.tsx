@@ -1,19 +1,20 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { beforeEach, describe, expect, it, type MockedFunction, vi } from 'vitest';
 import AggregationsPage from './AggregationsPage';
 import { apiGet, apiPost } from '../api';
 
-jest.mock('../api', () => ({
-  apiDelete: jest.fn(),
-  apiGet: jest.fn(),
-  apiPost: jest.fn(),
+vi.mock('../api', () => ({
+  apiDelete: vi.fn(),
+  apiGet: vi.fn(),
+  apiPost: vi.fn(),
 }));
 
 describe('AggregationsPage', () => {
-  const mockedApiGet = apiGet as jest.MockedFunction<typeof apiGet>;
-  const mockedApiPost = apiPost as jest.MockedFunction<typeof apiPost>;
+  const mockedApiGet = apiGet as MockedFunction<typeof apiGet>;
+  const mockedApiPost = apiPost as MockedFunction<typeof apiPost>;
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('reorders sources with up/down and sends the ordered list on save', async () => {
