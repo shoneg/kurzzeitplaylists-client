@@ -4,7 +4,7 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import App from './App';
 
 beforeEach(() => {
-  vi.spyOn(global, 'fetch').mockResolvedValue({
+  vi.spyOn(globalThis, 'fetch').mockResolvedValue({
     ok: true,
     json: async () => ({ authenticated: false }),
   } as Response);
@@ -21,7 +21,7 @@ test('renders brand title', () => {
 });
 
 test('renders refresh token link for authenticated users', async () => {
-  vi.mocked(global.fetch).mockResolvedValue({
+  vi.mocked(globalThis.fetch).mockResolvedValue({
     ok: true,
     json: async () => ({ authenticated: true, user: { displayName: 'Simon', spotifyId: 'u1' } }),
   } as Response);
